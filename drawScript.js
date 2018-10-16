@@ -6,7 +6,7 @@ var canvas, ctx, flag = false,
     dot_flag = false;
 
 var x = "black",
-    y = 2;
+    y = 10;
 
 function init() {
     canvas = document.getElementById('can');
@@ -41,7 +41,7 @@ function draw() {
 function erase() {
     ctx.clearRect(0, 0, w, h);
 }
- 
+
 function save() {
     var dataURL = canvas.toDataURL();
     console.log(dataURL);

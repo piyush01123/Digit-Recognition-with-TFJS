@@ -1,0 +1,19 @@
+{
+  "name": "digit-recognizer-with-tfjs",
+  "version": "1.0.0",
+  "description": "A short personal project of mine using tfjs.",
+  "main": "drawScript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piyush-kgp/digit-recognizer-with-tfjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piyush-kgp/digit-recognizer-with-tfjs/issues"
+  },
+  "homepage": "https://github.com/piyush-kgp/digit-recognizer-with-tfjs#readme"
+}
