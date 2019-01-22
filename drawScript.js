@@ -10,10 +10,8 @@ var x = "black",
 // y = 1;
 y = 10;
 
-async function init() {
-  // const model = await tf.loadModel('tfjs_target_dir/model.json');
-  // console.log(model);
-  const model = await tf.loadModel("https://raw.githubusercontent.com/piyush-kgp/Digit-Recognition-with-TFJS/master/tfjs_target_dir/model.json");
+
+function init() {
 
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
@@ -52,7 +50,7 @@ function erase() {
 
 }
 
-function save() {
+async function save() {
     // var dataURL = canvas.toDataURL();
     // // console.log('base64', dataURL);
     // var link = document.createElement('a');
@@ -86,6 +84,9 @@ function save() {
     console.log(fin_array);
 
     document.getElementById('out').innerHTML = fin_array;
+    const model = await tf.loadModel("https://raw.githubusercontent.com/piyush-kgp/Digit-Recognition-with-TFJS/master/tfjs_target_dir/model.json");
+    console.log(model.predict);
+
 }
 
 function findxy(res, e) {
