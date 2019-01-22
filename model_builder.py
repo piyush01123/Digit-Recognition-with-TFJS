@@ -12,16 +12,20 @@ except:
     exit('You must have Tensorflow >= 1.11')
 
 (X_train, Y_train), (X_test, Y_test) =  mnist.load_data()
+
 X_train, X_test = X_train.astype(np.float32), X_test.astype(np.float32)
 X_train[np.where(X_train<=128)] = 0.0
 X_train[np.where(X_train>128)] = 1.0
 X_test[np.where(X_test<=128)] = 0.0
 X_test[np.where(X_test>128)] = 1.0
+X_train = X_train.reshape(-1, 784)
+X_test = X_test.reshape(-1, 784)
 
 def create_model():
     model = Sequential([
-                Flatten(input_shape=(28,28)),
-                Dense(512, activation=tf.nn.relu),
+                # Flatten(input_shape=(28,28)),
+                # Dense(512, activation=tf.nn.relu),
+                Dense(512, activation=tf.nn.relu, input_shape=(784,)),
                 Dropout(0.2),
                 Dense(10, activation=tf.nn.softmax)
             ])
