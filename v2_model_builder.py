@@ -30,11 +30,13 @@ def create_model():
     return model
 
 model = create_model()
-checkpoint_path = "checkpoints/cp.ckpt"
-checkpoint_dir = os.path.dirname(checkpoint_path)
-cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path,
-                                                 save_weights_only=True,
-                                                 verbose=1)
-model.fit(x = X_train, y = Y_train, batch_size = 100, validation_data = (X_test, Y_test), callbacks = [cp_callback])
+# checkpoint_path = "checkpoints/cp.ckpt"
+# checkpoint_dir = os.path.dirname(checkpoint_path)
+# cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path,
+#                                                  save_weights_only=True,
+#                                                  verbose=1)
+# model.fit(x = X_train, y = Y_train, batch_size = 100, validation_data = (X_test, Y_test), callbacks = [cp_callback])
+# model.save('my_mnist_model.h5')
+model.fit(x = X_train, y = Y_train, batch_size = 100, validation_data = (X_test, Y_test))
 model.save('my_mnist_model.h5')
 tfjs.converters.save_keras_model(model, 'tfjs_target_dir')

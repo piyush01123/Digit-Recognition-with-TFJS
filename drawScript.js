@@ -10,11 +10,10 @@ var x = "black",
 // y = 1;
 y = 10;
 
-function init() {
+async function init() {
   // const model = await tf.loadModel('tfjs_target_dir/model.json');
   // console.log(model);
-  const model =  tf.loadModel("https://00e9e64bac6482d603261c27035f3af591fd62d3cc257f94b4-apidata.googleusercontent.com/download/storage/v1/b/tfjs-mnist-example/o/tfjs%2Fmodel.json?qk=AD5uMEs9i6uaEU1zXTjUe_pm4qgseu9yOUnSuNVxMk3GcnffXUCtB3LoeJnCyWbvjVjhlvBsxhn9OTPXoK0l9CXCukQAL4_ROPKUx1dz9b8h0cZhU_b54BwZ5sRQyVjLOBcVS9GUTwgzcxNvWpUJUwTZy7RzUdy-amn8F-6P7v1Hp8trMdW-5q0NrIoOgYmyInarsuqHIsVRDWzq8wwMAl5FeDppp6BmPYWQQyIL_VsSnYEFtSbBWtklnTz9-mcgVL7yqYlBeyL20FIbZO9AicTIYk4vI18NRTkRnbXiHXiyxgmFy1DQsRds793ozLzJW2zRXx_uxMsnK14llm_8HcEKO0c05wvRZq2ViJu1u5RvmuDdUitivgleI9oIR0Vi_rWhhwVSpBYwoJfEDsB53OszJgtcjBS8S1k_WBVWTyqU5kL7po2sXMm2tkUc88E6Kys7dNoIFr4tKjUny6v5Qgq6EM2TR7w-xeHlue-3KVpwfSKzm93No4FSufTLPXy0d0qEGF8s7afOctg-u1kh_zozzPDzDIYuWPE-zrS7taG-o6dQ3o_dXWsWFRoNheTk5xmjDfCKFX9_2YiR1Ej62J_o_-xc2lebXwSzR9NKE-Hjr-i8rR6XkpTBsuI_PMU_ZPdyIB_6TIpPNvvt1qqp7OALtzg5JwJvG2Y8K4e_denGSrxsIFFjlEaFJCpm9OoQwpt01WMmZGUoZk3bqoOi8N6Za6HBwP7gLvMXub0gxpH9NpalKlejsMhxVM_t_wuGEgc5aAqIYOTW9DyjgO042RsljRGrktkjNA");
-  console.log(model);
+  const model = await tf.loadModel("https://raw.githubusercontent.com/piyush-kgp/Digit-Recognition-with-TFJS/master/tfjs_target_dir/model.json");
 
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
