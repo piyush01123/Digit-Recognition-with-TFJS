@@ -86,7 +86,7 @@ function save() {
     }
     console.log(fin_array);
 
-    // document.getElementById('out').innerHTML = fin_array;
+    document.getElementById('out').innerHTML = fin_array;
 }
 
 function findxy(res, e) {
