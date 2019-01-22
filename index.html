@@ -1,22 +1,30 @@
 <html>
-<meta charset="utf-8" />
-
 <head>
-<script  src="https://docs.opencv.org/master/opencv.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.5"></script>
-<script type="text/javascript" src="drawScript.js"> </script>
+  <title>TFJS MNIST Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/tfjs-examples.css">
+  <script  src="https://docs.opencv.org/master/opencv.js" type="text/javascript"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.5"></script>
+  <script type="text/javascript" src="drawScript.js"> </script>
 </head>
-
-<body onload="init()">
-
-<canvas id="can" width="280" height="280" style="position:absolute;top:10%;left:10%;border:2px solid;"></canvas>
-
-<input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;"></input>
-
-<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;"></input>
-
-<p id="out"></p>
-
+<body  class='tfjs-example-container' onload="init()">
+  <section class='title-area'>
+    <h1>Draw a digit</h1>
+    <p class='subtitle'>Draw a digit and predict with our model trained on MNIST.</p>
+  </section>
+  <section>
+    <canvas id="can" width="280" height="280" style="position:absolute;top:30%;left:10%;border:2px solid;"></canvas>
+  </section>
+  <section align='center'>
+  <!-- <section style="align-items:center;"> -->
+    <button id="btn" onclick="save()" style="position:absolute;top:40%;">PREDICT</button>
+    <button id="clr" onclick="erase()" style="position:absolute;top:50%;">CLEAR CANVAS</button>
+  </section>
+  <section>
+    <p id="result"  style="position:absolute;top:40%;left:70%"></p>
+  </section>
+  <footer style="position:absolute;top:80%;"><a href="https://github.com/piyush-kgp/Digit-Recognition-with-TFJS">Code and documentation</a></footer>
+  <!-- <p id="out"></p> -->
 </body>
-
 </html>

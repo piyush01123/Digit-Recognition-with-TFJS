@@ -1,4 +1,6 @@
 var img_array = [];
+var MODEL_PATH = "https://raw.githubusercontent.com/piyush-kgp/Digit-Recognition-with-TFJS/master/tfjs_target_dir/model.json";
+
 var canvas, ctx, flag = false,
     prevX = 0,
     currX = 0,
@@ -60,7 +62,7 @@ async function save() {
     //     link.download = "mypainting.png";
     // }, false);
     // document.body.appendChild(link);
-    console.log(img_array);
+    // console.log(img_array);
     // let src = cv.imread("can");
     // console.log(src);
     // console.log('image width: ' + src.cols + '\n' +
@@ -76,19 +78,21 @@ async function save() {
       var point = img_array[i];
       var x = point[0];
       var y = point[1];
-      console.log(x, y);
       var pos = 28*Math.floor(y/10) + Math.floor(x/10)
-      console.log('pos', pos);
       fin_array[pos]=1;
     }
     console.log(fin_array);
 
-    document.getElementById('out').innerHTML = fin_array;
-    const model = await tf.loadModel("https://raw.githubusercontent.com/piyush-kgp/Digit-Recognition-with-TFJS/master/tfjs_target_dir/model.json");
-    console.log(model);
+    // document.getElementById('out').innerHTML = fin_array;
+    const model = await tf.loadModel(MODEL_PATH);
     const X = tf.tensor2d(fin_array, [1, 784]);
-    // console.log(model.predict(fin_array));
-    console.log(model.predict(X));
+    y = model.predict(X);
+    pred = y.argMax(1);
+    pred = Array.from(pred.dataSync());
+
+    console.log('Predicted=', pred[0]);
+    document.getElementById('result').innerHTML = 'Predicted Digit = '+pred;
+
 
 }
 
