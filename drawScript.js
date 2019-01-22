@@ -86,6 +86,9 @@ async function save() {
     document.getElementById('out').innerHTML = fin_array;
     const model = await tf.loadModel("https://raw.githubusercontent.com/piyush-kgp/Digit-Recognition-with-TFJS/master/tfjs_target_dir/model.json");
     console.log(model);
+    const X = tf.tensor2d(fin_array, [1, 784]);
+    // console.log(model.predict(fin_array));
+    console.log(model.predict(X));
 
 }
 
