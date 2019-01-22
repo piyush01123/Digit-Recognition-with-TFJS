@@ -2,10 +2,10 @@ import numpy as np
 import tensorflow as tf
 import cv2
 
-try:
-    assert tf.__version__ == '1.11.0'
-except:
-    exit('You must have Tensorflow 1.11')
+# try:
+#     assert tf.__version__ == '1.11.0'
+# except:
+#     exit('You must have Tensorflow 1.11')
 
 def run_by_weights(x_, y_):
     Flatten, Dense, Dropout = tf.keras.layers.Flatten, tf.keras.layers.Dense, tf.keras.layers.Dropout

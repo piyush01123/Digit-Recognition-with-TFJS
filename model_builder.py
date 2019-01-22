@@ -3,9 +3,9 @@ import tensorflow as tf
 import tensorflowjs as tfjs
 
 try:
-    assert tf.__version__ == '1.11.0'
+    assert tf.__version__ >= '1.11.0'
 except:
-    exit('You must have Tensorflow 1.11')
+    exit('You must have Tensorflow >= 1.11')
 
 mnist = tf.keras.datasets.mnist
 Flatten, Dense, Dropout = tf.keras.layers.Flatten, tf.keras.layers.Dense, tf.keras.layers.Dropout
@@ -21,6 +21,7 @@ def create_model():
                 Dropout(0.2),
                 Dense(10, activation=tf.nn.softmax)
             ])
+    print(model.summary())
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     return model
 
