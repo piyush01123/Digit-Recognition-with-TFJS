@@ -1,5 +1,5 @@
 # Digit Recognizer with Tensorflow JS
-A short personal project to train model using Keras in Python and use TFJS library for on-browser prediction.
+A short personal project to train a model using Keras in Python and use TFJS library for on-browser prediction.
 
 [See in action](https://piyush-kgp.github.io/Digit-Recognition-with-TFJS/)
 
@@ -33,6 +33,7 @@ tensorflowjs_converter --input_format keras \
                        my_mnist_model.h5 \
                        tfjs_target_dir
 ```
+
 Notice that our model is very simple ie just a hidden layer with `relu` activations, a dropout layer and finally an output layer with softmax activations.
 ```
 Layer (type)                 Output Shape              Param #   
@@ -49,9 +50,19 @@ Non-trainable params: 0
 _________________________________________________________________
 ```
 
+#### Credits
+Some part of the javascript code is borrowed from the [TFJS mnist-core example ](https://github.com/tensorflow/tfjs-examples/tree/master/mnist-core) and also in order to avoid a lot of work on frontend, I used the [template](https://github.com/tensorflow/tfjs-examples/tree/master/shared) from the TFJS examples repo.
+<b>Bonus tip</b>: It helps to clone the TFJS examples repo and run everything just to see what TFJS is capable of (a lot). You can use this custom-made bash command for this.
+
+```bash
+brew install yarn # replace with suitable command for non-macOS
+git clone https://github.com/tensorflow/tfjs-examples
+cd tfjs-examples
+ls -d */ | xargs -I {} bash -c "cd '{}' && pwd && yarn && nohup yarn watch > /dev/null 2>&1 &" #goes into each directory and runs scripts without hanging up.
+```
 #### Side Note
 The focus for this project is not to attain very high accuracy on actual hand-written images in demo but to make TFJS work with the Keras-trained model. Even so, there were several challenges due to the TFJS library being still in its infancy (and me being a beginner in TFJS).
-One effective way to improve accuracy would be to modify the way the canvas output is being converted into 2D tensor. The current workaround produces non-continuous segments. (Look at `check.png`); whereas actual MNIST images contain continuous segments. This however will require significant tweaking with the canvas event listener functions.
+One sure-shot way to improve accuracy would be to modify the way the canvas output is being converted into 2D tensor. The current workaround produces non-continuous segments. (Look at `check.png`); whereas actual MNIST images contain continuous segments. This however will require significant tweaking with the canvas event listener functions. However since the results are reasonably well, this is not necessary.
 
 One important learning from this project is to use TFJS version `0.13.5` instead of `0.11.5` because the earlier version throws very weird (and misleading) errors.
 
