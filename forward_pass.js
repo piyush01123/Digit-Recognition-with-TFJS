@@ -16,6 +16,8 @@ function NeuralNet() {
   // creates a probability distribution over our 10 classes so their output
   // values sum to 1.
 
+  console.log(model);
+
   return model;
 }
 
